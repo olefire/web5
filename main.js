@@ -2,9 +2,10 @@ function calc() {
     let cost = document.getElementById("cost");
     let amount = document.getElementById("amount");
     let result = document.getElementById("result");
-    let re = /\D/;
+    let re = new RegExp('^[0-9]*[.,]?[0-9]+$');
+    let re_int = /\D/;
     let test_cost = cost.value.match(re);
-    let test_amount = amount.value.match(re);
+    let test_amount = amount.value.match(re_int);
     if (cost.value === "" || amount.value === "")
         result.innerHTML = "Введите данные!";
     else if (!isNaN(test_cost || test_amount))
